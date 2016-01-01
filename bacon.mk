@@ -18,6 +18,8 @@ ifneq ($(QCPATH),)
 $(call inherit-product-if-exists, $(QCPATH)/common/config/device-vendor.mk)
 endif
 
+LOCAL_CFLAGS += -Ofast
+
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay vendor/extra/overlays/phone-1080p
 
@@ -153,7 +155,7 @@ PRODUCT_COPY_FILES += \
 
 # IO Scheduler
 PRODUCT_PROPERTY_OVERRIDES += \
-    sys.io.scheduler=bfq
+    sys.io.scheduler=sio
 
 # IPC router config
 PRODUCT_COPY_FILES += \
@@ -203,6 +205,10 @@ PRODUCT_PACKAGES += \
     Tag \
     nfc_nci.pn54x.default \
     com.android.nfc_extras
+
+#AAAHAH     SnapdragonCamera 
+PRODUCT_PACKAGES += \
+    zipalign
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/libnfc-nxp.conf:system/etc/libnfc-nxp.conf \
@@ -308,7 +314,29 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.qualcomm.perf.cores_online=2 \
     ro.vendor.extension_library=libqti-perfd-client.so \
     ro.telephony.call_ring.multiple=0 \
-    ro.telephony.default_network=9
+    ro.telephony.default_network=9 \
+    ro.ril.sensor.sleep.control=1 \
+    ro.ril.enable.amr.wideband=1 \
+    ro.gsm.2nd_data_retry_config=max/_retries=3, 2000, 2000, 5000 \
+    media.stagefright.enable-player=true \
+    media.stagefright.enable-meta=true \
+    media.stagefright.enable-scan=true \
+    media.stagefright.enable-http=true \
+    media.stagefright.enable-aac=true \
+    media.stagefright.enable-qcp=true \
+    media.stagefright.enable-record=true \
+    persist.telephony.support.ipv6=1 \
+    persist.telephony.support.ipv4=1 \
+    ro.com.google.locationfeatures=1 \
+    ro.com.google.networklocation=1 \
+    windowsmgr.support_rotation_270=true \
+    ro.config.nocheckin=1 \
+    ro.config.vc_call_steps=20 \
+    ro.marsh.version=1.9 \
+    ro.config.ringtone=Titania.ogg \
+    ro.config.notification_sound=Tethys.ogg \
+    ro.config.alarm_alert=Oxygen.ogg \
+    persist.sys.strictmode.disable=true
 
 # Call the proprietary setup
 $(call inherit-product-if-exists, vendor/oneplus/bacon/bacon-vendor.mk)
@@ -319,3 +347,5 @@ endif
 
 # Inherit from oppo-common
 $(call inherit-product, device/oppo/common/common.mk)
+
+WITH_DEXPREOPT := true
