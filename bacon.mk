@@ -63,7 +63,8 @@ TARGET_SCREEN_WIDTH := 1080
 
 # Camera
 PRODUCT_PACKAGES += \
-    camera.bacon
+    camera.bacon \
+    Snap
 
 # Charger
 PRODUCT_PACKAGES += \
@@ -161,8 +162,7 @@ PRODUCT_PACKAGES += \
 
 # Aaahh 
 PRODUCT_PACKAGES += \
-    zipalign \
-    Snap
+    zipalign
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/libnfc-nxp.conf:system/etc/libnfc-nxp.conf \
@@ -207,7 +207,7 @@ PRODUCT_PACKAGES += \
     init.bacon.rc \
     init.qcom.power.rc \
     init.qcom.usb.rc \
-    init.recovery.qcom.rc \
+    init.recovery.bacon.rc \
     libinit_bacon \
     ueventd.bacon.rc
 
