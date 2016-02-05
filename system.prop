@@ -76,7 +76,6 @@ persist.timed.enable=true
 
 # Wifi
 wifi.interface=wlan0
-wifi.supplicant_scan_interval=15
 
 ro.ril.sensor.sleep.control=1
 ro.ril.enable.amr.wideband=1
