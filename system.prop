@@ -75,13 +75,6 @@ wifi.interface=wlan0
 
 ro.ril.sensor.sleep.control=1
 ro.ril.enable.amr.wideband=1
-media.stagefright.enable-player=true
-media.stagefright.enable-meta=true
-media.stagefright.enable-scan=true
-media.stagefright.enable-http=true
-media.stagefright.enable-aac=true
-media.stagefright.enable-qcp=true
-media.stagefright.enable-record=true
 persist.telephony.support.ipv6=1
 persist.telephony.support.ipv4=1
 windowsmgr.support_rotation_270=true
