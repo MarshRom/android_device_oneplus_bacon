@@ -257,5 +257,3 @@ endif
 
 # Inherit from oppo-common
 $(call inherit-product, device/oppo/common/common.mk)
-
-WITH_DEXPREOPT := true
