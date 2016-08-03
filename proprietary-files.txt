@@ -68,3 +68,6 @@ vendor/firmware/libpn547_fw.so
 # Sensors
 etc/sensor_def_qcomdev.conf
 vendor/lib/libAKM8963.so
+
+# Blur
+vendor/lib/libuiblur.so
